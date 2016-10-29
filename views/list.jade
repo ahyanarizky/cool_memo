@@ -1,0 +1,10 @@
+extends layout
+block content
+  each key in data
+    .panel.panel-success
+      .panel-heading
+        h3.panel-title #{key.title}
+      .panel-body
+        | #{key.content}
+      ul.list-group
+        li.list-group-item Cras justo odio

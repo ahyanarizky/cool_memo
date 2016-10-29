@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  .jumbotron
+    .container.text-center
+      h1= title
+      p Create your very own cool personal memos !
+    .container
+      form(method='POST', action='/post')
+        .form-group
+          label(for='formGroupExampleInput') Memo Title
+          input#formGroupExampleInput.form-control(type='text', placeholder='Give your cool memo a title!', name='title')
+        .form-group
+          label(for='exampleTextarea') Content
+          textarea#exampleTextarea.form-control(rows='3', type='text', placeholder='Type your memo here ...', name='content')
+        .form-group
+          label(for='formGroupExampleInput') Tags
+          input#formGroupExampleInput.form-control(type='text', placeholder='Tag your memo with unique keywords', name='tags')
+        .form-group
+          button.btn.btn-primary(type='submit') Create memo
