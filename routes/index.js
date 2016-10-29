@@ -4,22 +4,18 @@ var memo = require('../models/memo')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', {
-        title: 'Cool Memo',
-        code: "home"
-    });
+    res.render('index', {title: 'Cool Memo'});
 });
 
 router.post('/post', function(req, res, next) {
     memo.create({
         title: req.body.title,
         content: req.body.content,
-        tags: arrTags
+        tags: req.body.tags
     }, (err, data) => {
         if (err) {
-            console.log(err);
+            return handleError(err);
         } else {
-            console.log(data);
             res.redirect('/list')
         }
     })
