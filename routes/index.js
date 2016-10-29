@@ -27,4 +27,29 @@ router.get('/list', function(req, res, next) {
     })
 })
 
+router.get('/update/:id', function(req, res, next) {
+    memo.findOne({
+        _id: req.params.id
+    }, (err, data) => {
+        console.log(data);
+        res.render('update', {data})
+    })
+})
+
+router.post('/update/:id', function(req, res, next) {
+    memo.update({
+        _id: req.params.id
+    }, {
+        title: req.body.title,
+        content: req.body.content,
+        tags: req.body.tags
+    }, (err) => {
+        if (err) {
+            return handleError(err)
+        } else {
+            res.redirect('/list')
+        }
+    })
+})
+
 module.exports = router;
