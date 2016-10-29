@@ -21,9 +21,9 @@ router.post('/', function(req, res, next) {
 });
 
 //edit memo
-router.put('/:title', function(req, res, next) {
+router.put('/:id', function(req, res, next) {
     memo.update({
-        title: req.params.title
+        _id: req.params.id
     }, {
         title: req.body.title,
         content: req.body.content,
@@ -38,9 +38,9 @@ router.put('/:title', function(req, res, next) {
 })
 
 //delete memo
-router.delete('/:title', function(req, res, next) {
+router.delete('/:id', function(req, res, next) {
     memo.remove({
-        title: req.params.title
+        _id: req.params.id
     }, (err) => {
         if (err) {
             return handleError(err)
