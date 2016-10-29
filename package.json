@@ -1,0 +1,31 @@
+{
+  "name": "cool_memo",
+  "version": "1.0.0",
+  "description": "Create a memo with basic CRUD operations",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocaha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahyanarizky/cool_memo.git"
+  },
+  "keywords": [
+    "memo",
+    "crud"
+  ],
+  "author": "ahyanarizky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahyanarizky/cool_memo/issues"
+  },
+  "homepage": "https://github.com/ahyanarizky/cool_memo#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongodb": "^2.2.11",
+    "mongoose": "^4.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
