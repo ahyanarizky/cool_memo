@@ -9,8 +9,8 @@ block content
           | #{key.content}
           .pull-right
             .form-group
-              a.btn.btn-warning(href='/update', role='button') Edit Memo
+              a.btn.btn-warning(href='/update/#{key._id}', role='button') Edit Memo
             .form-group
-              a.btn.btn-danger(href='/delete', role='button') Delete Memo
+              a.btn.btn-danger(href='/delete/#{key._id}', role='button') Delete Memo
         ul.list-group
           li.list-group-item Tags : #{key.tags}
