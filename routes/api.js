@@ -43,7 +43,7 @@ router.delete('/:id', function(req, res, next) {
         _id: req.params.id
     }, (err) => {
         if (err) {
-            return handleError(err)
+            res.json({message: 'Error deleting data'})
         } else {
             res.json({message: 'data successfully deleted'})
         }

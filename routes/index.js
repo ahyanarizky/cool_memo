@@ -23,7 +23,7 @@ router.post('/post', function(req, res, next) {
 
 router.get('/list', function(req, res, next) {
     memo.find({}, (err, data) => {
-        res.render('list', {data, code: "list"})
+        res.render('list', {data, title: "List Memo"})
     })
 })
 
@@ -64,7 +64,7 @@ router.get('/delete/:id', function(req, res, next) {
 })
 
 router.get('/ajax', function(req, res, next) {
-    res.render('ajax')
+    res.render('ajax', {title: 'AJAX TABLE'})
 })
 
 module.exports = router;

@@ -1,6 +1,3 @@
-// Userlist data array for filling in info box
-var userListData = [];
-
 // DOM Ready =============================================================
 $(document).ready(function() {
 
@@ -8,6 +5,8 @@ $(document).ready(function() {
     populateTable();
     // Add User button click
     $('#btnAddUser').on('click', addUser);
+    // Delete User link click
+    $('#userList table tbody').on('click', 'td a.btn.btn-danger', deleteUser);
 
 });
 
@@ -28,6 +27,7 @@ function populateTable() {
             tableContent += '<td>' + this.title + '</td>';
             tableContent += '<td>' + this.content + '</td>';
             tableContent += '<td>' + this.tags + '</td>';
+            tableContent += '<td><a href="#" class="btn btn-danger" role="button" rel="' + this._id + '">Delete</a></td>';
             tableContent += '</tr>';
         });
 
@@ -71,4 +71,34 @@ function addUser(event) {
         alert('Please fill in all fields');
         return false;
     }
+};
+
+// Delete User
+function deleteUser(event) {
+
+    event.preventDefault();
+
+    // Pop up a confirmation dialog
+    var confirmation = confirm('Are you sure you want to delete this user?');
+
+    // Check and make sure the user confirmed
+    if (confirmation === true) {
+
+        // If they did, do our delete
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/' + $(this).attr('rel')
+        }).done(function(response) {
+            // Update the table
+            populateTable();
+
+        });
+
+    } else {
+
+        // If they said no to the confirm, do nothing
+        return false;
+
+    }
+
 };
