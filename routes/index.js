@@ -32,7 +32,12 @@ router.get('/update/:id', function(req, res, next) {
         _id: req.params.id
     }, (err, data) => {
         console.log(data);
-        res.render('update', {data})
+        res.render('update', {
+            id: data._id,
+            title: data.title,
+            content: data.content,
+            tags: data.tags
+        })
     })
 })
 
