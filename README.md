@@ -27,6 +27,7 @@ link | description
 `http://localhost:3000/list` | View all memo
 `http://localhost:3000/update/:id` | Update memo
 `http://localhost:3000/delete/:id` | Delete a memo
+`http://localhost:3000/ajax` | Ajax page CRD operations
 
 
 ## License
