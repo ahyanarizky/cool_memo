@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    .container.text-center
+      .jumbotron
+        h1= title
+
+    // Wrapper
+    #wrapper
+      .container
+        // USER LIST
+        h2 User List
+        p
+          | This table is populated using ajax
+        #userList
+          .container
+            table.table.table-striped
+                thead
+                    th Title
+                    th Content
+                    th Tags
+                    th Delete
+                tbody
+        // /USER LIST
+        // ADD USER
+        h2 Add Memo
+        #addUser
+            fieldset.form-group
+              .form-group
+                input#inputTitle.form-control(type='text', placeholder='Title')
+              .form-group
+                input#inputContent.form-control(type='text', placeholder='Content')
+              .form-group
+                input#inputTags.form-control(type='text', placeholder='Tags')
+              .form-group
+                button.btn.btn-primary#btnAddUser Add Memo
+        // /ADD USER
+
+    // /WRAPPER
