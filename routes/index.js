@@ -63,4 +63,8 @@ router.get('/delete/:id', function(req, res, next) {
     })
 })
 
+router.get('/ajax', function(req, res, next) {
+    res.render('ajax')
+})
+
 module.exports = router;

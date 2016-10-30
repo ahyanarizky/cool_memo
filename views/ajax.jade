@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .container
+    h1= title
+    p Welcome to our test
+
+    // Wrapper
+    #wrapper
+      .container
+        // USER LIST
+        h2 User List
+        p
+          | This table is populated using ajax
+        #userList
+          .container
+            table.table.table-striped
+                thead
+                    th Title
+                    th Content
+                    th Tags
+                tbody
+        // /USER LIST
+
+    // /WRAPPER
