@@ -31,13 +31,7 @@ router.get('/update/:id', function(req, res, next) {
     memo.findOne({
         _id: req.params.id
     }, (err, data) => {
-        console.log(data);
-        res.render('update', {
-            id: data._id,
-            title: data.title,
-            content: data.content,
-            tags: data.tags
-        })
+        res.render('update', {data})
     })
 })
 
@@ -64,7 +58,7 @@ router.get('/delete/:id', function(req, res, next) {
         if (err) {
             return handleError(err)
         } else {
-            res.json({message: 'deleted successfully'})
+            res.redirect('/list')
         }
     })
 })
