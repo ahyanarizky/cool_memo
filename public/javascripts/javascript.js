@@ -6,6 +6,8 @@ $(document).ready(function() {
 
     // Populate the user table on initial page load
     populateTable();
+    // Add User button click
+    $('#btnAddUser').on('click', addUser);
 
 });
 
@@ -32,4 +34,41 @@ function populateTable() {
         // Inject the whole content string into our existing HTML table
         $('#userList table tbody').html(tableContent);
     });
+};
+
+// Add User
+function addUser(event) {
+    event.preventDefault();
+
+    // Super basic validation - increase errorCount variable if any fields are blank
+    var errorCount = 0;
+    $('#addUser input').each(function(index, val) {
+        if ($(this).val() === '') {
+            errorCount++;
+        }
+    });
+
+    // Check and make sure errorCount's still at zero
+    if (errorCount === 0) {
+
+        // If it is, compile all user info into one object
+        var newUser = {
+            'title': $('#addUser fieldset input#inputTitle').val(),
+            'content': $('#addUser fieldset input#inputContent').val(),
+            'tags': $('#addUser fieldset input#inputTags').val()
+        }
+
+        // Use AJAX to post the object to our adduser service
+        $.ajax({type: 'POST', data: newUser, url: '/api', dataType: 'JSON'}).done(function(response) {
+            // Clear the form inputs
+            $('#addUser fieldset input').val('');
+            // If something goes wrong, alert the error message that our service returned
+            populateTable();
+
+        });
+    } else {
+        // If errorCount is more than 0, error out
+        alert('Please fill in all fields');
+        return false;
+    }
 };
