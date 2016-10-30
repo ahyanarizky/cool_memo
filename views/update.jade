@@ -6,15 +6,15 @@ block content
         h1= title
         p Edit memo
       .container
-        form(method='POST', action='/update/#{id}')
+        form(method='POST', action='/update/#{data._id}')
           .form-group
             label(for='formGroupExampleInput') Memo Title
-            input#formGroupExampleInput.form-control(type='text', value="#{title}", name='title')
+            input#formGroupExampleInput.form-control(type='text', value="#{data.title}", name='title')
           .form-group
             label(for='exampleTextarea') Content
-            input#exampleTextarea.form-control(type='text', value='#{content}', name='content')
+            input#exampleTextarea.form-control(type='text', value='#{data.content}', name='content')
           .form-group
             label(for='formGroupExampleInput') Tags
-            input#formGroupExampleInput.form-control(type='text', value='#{tags}', name='tags')
+            input#formGroupExampleInput.form-control(type='text', value='#{data.tags}', name='tags')
           .form-group
             button.btn.btn-primary(type='submit') Edit memo
