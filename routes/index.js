@@ -57,4 +57,16 @@ router.post('/update/:id', function(req, res, next) {
     })
 })
 
+router.get('/delete/:id', function(req, res, next) {
+    memo.remove({
+        _id: req.params.id
+    }, (err) => {
+        if (err) {
+            return handleError(err)
+        } else {
+            res.json({message: 'deleted successfully'})
+        }
+    })
+})
+
 module.exports = router;
