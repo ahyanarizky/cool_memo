@@ -21,5 +21,18 @@ block content
                     th Tags
                 tbody
         // /USER LIST
+        // ADD USER
+        h2 Add Memo
+        #addUser
+            fieldset.form-group
+              .form-group
+                input#inputTitle.form-control(type='text', placeholder='Title')
+              .form-group
+                input#inputContent.form-control(type='text', placeholder='Content')
+              .form-group
+                input#inputTags.form-control(type='text', placeholder='Tags')
+              .form-group
+                button.btn.btn-primary#btnAddUser Add Memo
+        // /ADD USER
 
     // /WRAPPER
