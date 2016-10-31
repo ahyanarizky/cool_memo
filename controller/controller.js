@@ -1,4 +1,5 @@
 'use strict'
+var memo = require('../models/memo')
 
 module.exports = {
     getHome: function(req, res, next) {

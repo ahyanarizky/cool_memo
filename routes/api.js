@@ -1,53 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var memo = require('../models/memo')
+var controller = require('../controller/controller_api')
 
 /* GET All memo */
-router.get('/', function(req, res, next) {
-    memo.find({}, (err, data) => {
-        res.json(data)
-    })
-});
+router.get('/', controller.showAllData);
 
 // Post new memo
-router.post('/', function(req, res, next) {
-    memo.create({
-        title: req.body.title,
-        content: req.body.content,
-        tags: req.body.tags
-    }, (err, data) => {
-        res.json(data)
-    })
-});
+router.post('/', controller.addNewMemo);
 
 //edit memo
-router.put('/:id', function(req, res, next) {
-    memo.update({
-        _id: req.params.id
-    }, {
-        title: req.body.title,
-        content: req.body.content,
-        tags: req.body.tags
-    }, (err) => {
-        if (err) {
-            return handleError(err)
-        } else {
-            res.json({message: 'data updated'})
-        }
-    })
-})
+router.put('/:id', controller.updateMemoJson)
 
 //delete memo
-router.delete('/:id', function(req, res, next) {
-    memo.remove({
-        _id: req.params.id
-    }, (err) => {
-        if (err) {
-            res.json({message: 'Error deleting data'})
-        } else {
-            res.json({message: 'data successfully deleted'})
-        }
-    })
-})
+router.delete('/:id', controller.deleteMemoJson)
 
 module.exports = router;

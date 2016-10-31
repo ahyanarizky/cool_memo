@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var memo = require('../models/memo')
 var controller = require('../controller/controller')
 
 /* GET home page. */
